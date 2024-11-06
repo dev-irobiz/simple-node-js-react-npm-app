@@ -4,8 +4,6 @@ pipeline {
         stage('Build'){
             steps{
                 bat 'npm install'
-            }
-            steps {
                 script {
                     powershell '''
                         Write-Output "Hello, World!"
@@ -13,12 +11,11 @@ pipeline {
                         Write-Output "Current date and time: $date"
                     '''
                 }
-            }
-            steps {
-                script {
+                 script {
                     powershell '''C:\\test-script\\myscript.ps1'''
                 }
             }
+           
         }
     }
 }
