@@ -5,6 +5,20 @@ pipeline {
             steps{
                 bat 'npm install'
             }
+            steps {
+                script {
+                    powershell '''
+                        Write-Output "Hello, World!"
+                        $date = Get-Date
+                        Write-Output "Current date and time: $date"
+                    '''
+                }
+            }
+            steps {
+                script {
+                    powershell '''C:\\test-script\\myscript.ps1'''
+                }
+            }
         }
     }
 }
